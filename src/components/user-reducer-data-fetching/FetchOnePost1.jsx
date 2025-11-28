@@ -8,7 +8,7 @@ function FetchOnePost1() {
   useEffect(() => {
     const fetchOnePost = async () => {
       try {
-        // artificial delay (e.g., 2 seconds)
+        // artificial delay
         await new Promise((resolve) => setTimeout(resolve, 2000));
 
         const response = await fetch(
@@ -18,7 +18,6 @@ function FetchOnePost1() {
           throw new Error("Failed to fetch the given post");
         }
         const onePost = await response.json();
-        console.log(onePost);
         setLoading(false);
         setError("");
         setPost(onePost);
@@ -31,12 +30,10 @@ function FetchOnePost1() {
     fetchOnePost();
   }, []);
 
-  if (error) return <p className="text-red-600">Error: {error}</p>;
-
   return (
     <div>
       {loading ? "loading..." : post.title}
-      {error && error}
+      {error && <p style={{ color: "red" }}>Error: {error}</p>}
     </div>
   );
 }

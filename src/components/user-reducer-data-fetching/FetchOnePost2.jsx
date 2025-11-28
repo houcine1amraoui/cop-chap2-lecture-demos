@@ -38,6 +38,7 @@ function FetchOnePost2() {
           throw new Error("Failed to fetch the given post");
         }
         const onePost = await response.json();
+        console.log(onePost);
         dispatch({ type: "success", payload: onePost });
       } catch (error) {
         dispatch({ type: "error", payload: error.message });
@@ -46,9 +47,12 @@ function FetchOnePost2() {
     fetchOnePost();
   }, []);
 
-  if (state.error) return <p className="text-red-600">Error: {state.error}</p>;
-
-  return <div>{state.loading ? "loading..." : state.post.title}</div>;
+  return (
+    <div>
+      {state.loading ? "loading..." : state.post.title}
+      {state.error && <p style={{ color: "red" }}>Error: {state.error}</p>}
+    </div>
+  );
 }
 
 export default FetchOnePost2;
