@@ -7,7 +7,10 @@ function UserForm1() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     alert(`Salam ${firstName} ${lastName}`);
+    setFirstName("");
+    setLastName("");
   };
+
   return (
     <div>
       <form onSubmit={handleFormSubmit}>

@@ -10,6 +10,7 @@ function UserForm2() {
     firstNameReset();
     lastNameReset();
   };
+
   return (
     <div>
       <form onSubmit={handleFormSubmit}>
