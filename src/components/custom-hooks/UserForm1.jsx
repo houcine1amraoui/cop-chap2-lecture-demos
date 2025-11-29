@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function UserForm() {
+function UserForm1() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
@@ -27,4 +27,4 @@ function UserForm() {
   );
 }
 
-export default UserForm;
+export default UserForm1;

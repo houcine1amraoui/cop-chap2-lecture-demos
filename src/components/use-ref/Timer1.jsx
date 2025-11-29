@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-function Timer() {
+function Timer1() {
   const [timer, setTimer] = useState(0);
   const intervalRef = useRef(null);
 
@@ -8,16 +8,18 @@ function Timer() {
     intervalRef.current = setInterval(() => {
       setTimer((prev) => prev + 1);
     }, 1000);
+
     return () => {
       clearInterval(intervalRef.current);
     };
   }, []);
+
   return (
     <div>
-      Timer - {timer}
+      Timer: {timer}
       <button onClick={() => clearInterval(intervalRef.current)}>Pause</button>
     </div>
   );
 }
 
-export default Timer;
+export default Timer1;

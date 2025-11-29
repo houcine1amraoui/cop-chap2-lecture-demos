@@ -1,10 +1,11 @@
-import { useState } from "react";
-import useDocumentTitle from "../../hooks/useDocumentTitle";
+import { useEffect, useState } from "react";
 
 function DocTitle1() {
   const [count, setCount] = useState(0);
 
-  useDocumentTitle(count);
+  useEffect(() => {
+    document.title = count;
+  }, [count]);
 
   return (
     <div>

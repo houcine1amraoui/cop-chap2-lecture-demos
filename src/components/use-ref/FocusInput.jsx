@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 function FocusInput() {
-  const inputRef = useRef();
+  const inputRef = useRef(null);
 
   useEffect(() => {
     inputRef.current.focus();
@@ -9,8 +9,11 @@ function FocusInput() {
 
   return (
     <div>
-      <input type="text" />
-      <input type="text" ref={inputRef} />
+      <div>
+        <label>Username: </label>
+        <input type="text" ref={inputRef} />
+      </div>
+      <label>Password: </label> <input type="text" />
     </div>
   );
 }
