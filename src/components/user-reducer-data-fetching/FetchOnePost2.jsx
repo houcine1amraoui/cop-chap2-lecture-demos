@@ -41,7 +41,6 @@ function FetchOnePost2() {
           throw new Error("Failed to fetch the given post");
         }
         const onePost = await response.json();
-        console.log(onePost);
         dispatch({ type: "success", payload: onePost });
       } catch (error) {
         dispatch({ type: "error", payload: error.message });
